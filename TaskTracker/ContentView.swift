@@ -9,13 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+       NavigationStack {
+           TabView {
+               Tab(Constants.homeString, systemImage: Constants.homeImage) {
+                   HomeScreen()
+               }
+               Tab(Constants.historyString, systemImage: Constants.historyImage) {
+                   HistoryScreen()
+               }
+               Tab(Constants.settingsString, systemImage: Constants.settingsImage) {
+                   SettingsScreen()
+               }
+           }
+               .navigationTitle("Task Tracker")
+
+       }
+    
     }
 }
 
